@@ -43,21 +43,21 @@ function start() {
       ],
     })
     .then(function (answer) {
-      // based on their answer, either call the bid or the post functions
+      // based on their answer, choose from the listed options
       if (answer.main === "Add a department") {
         //add_department();
       } else if (answer.main === "Add a role") {
         //addRole();
       } else if (answer.main === "Add an employee") {
-        //addRole();
+        //addemployee();
       } else if (answer.main === "View departments") {
-        //addRole();
+        //viewdepartments();
       } else if (answer.main === "View roles") {
-        //addRole();
+        //viewroles();
       } else if (answer.main === "View employees") {
-        //addRole();
+        //viewemployees();
       } else if (answer.main === "Update employee roles") {
-        //addRole();
+        //updateroles();
       } else {
         connection.end();
       }
