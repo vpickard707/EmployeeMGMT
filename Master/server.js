@@ -97,8 +97,7 @@ function viewDepartments() {
     }
   );
 }
-
-//================= Select Role Queries Role Title for Add Employee Prompt ===========//
+//================= Select Role Queries Employee Role Title for Add Employee Prompt ===========//
 var roleArr = [];
 function selectRole() {
   connection.query("SELECT * FROM role", function (err, res) {
@@ -109,7 +108,7 @@ function selectRole() {
   });
   return roleArr;
 }
-//================= Select Role Queries The Managers for Add Employee Prompt ===========//
+//================= Select Role Queries Employee's Manager for Add Employee Prompt ===========//
 var managersArr = [];
 function selectManager() {
   connection.query(
@@ -123,6 +122,7 @@ function selectManager() {
   );
   return managersArr;
 }
+
 //============= Add Employee ==========================//
 function addEmployee() {
   inquirer
@@ -140,14 +140,8 @@ function addEmployee() {
       {
         name: "role",
         type: "list",
-        message: "What is their role? ",
+        message: "What is the employee's role? ",
         choices: selectRole(),
-      },
-      {
-        name: "choice",
-        type: "rawlist",
-        message: "Who is their manager?",
-        choices: selectManager(),
       },
     ])
     .then(function (val) {
@@ -189,12 +183,12 @@ function updateEmployee() {
               }
               return lastName;
             },
-            message: "What is the Employee's last name? ",
+            message: "What is the employee's last name? ",
           },
           {
             name: "role",
             type: "rawlist",
-            message: "What is the Employees new title? ",
+            message: "What is the employee's new title? ",
             choices: selectRole(),
           },
         ])
@@ -228,12 +222,12 @@ function addRole() {
           {
             name: "Title",
             type: "input",
-            message: "What is the roles Title?",
+            message: "What is the role's title?",
           },
           {
             name: "Salary",
             type: "input",
-            message: "What is the Salary?",
+            message: "What is the salary?",
           },
         ])
         .then(function (res) {
@@ -260,7 +254,7 @@ function addDepartment() {
       {
         name: "name",
         type: "input",
-        message: "What Department would you like to add?",
+        message: "What department would you like to add?",
       },
     ])
     .then(function (res) {
